@@ -1,0 +1,14 @@
+{
+  "goal": "Implement cursor pagination for a synthetic catalog",
+  "acceptance": ["Stable ordering and no duplicate items across pages"],
+  "non_goals": ["No production deployment"],
+  "completed": ["Reviewed the existing query path"],
+  "in_progress": ["Implementing cursor validation"],
+  "decisions": [{"decision": "Use a stable item ID as the tie-breaker", "rationale": "Timestamps can be equal", "evidence": ["Synthetic design review"]}],
+  "blockers": [],
+  "next_steps": ["Test equal timestamps and an invalid cursor"],
+  "verification": [{"check": "Unit tests", "result": "not_run", "evidence": "Implementation incomplete"}],
+  "unverified": ["No real client handoff tested"],
+  "evidence": [],
+  "permission_reminders": ["Deployment requires separate authorization"]
+}

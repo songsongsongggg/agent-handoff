@@ -1,0 +1,9 @@
+/work/
+/outputs/
+/bin/
+/baton
+/baton.exe
+/.baton-state/
+*.test
+*.out
+.DS_Store

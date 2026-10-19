@@ -1,0 +1,11 @@
+# Implementation and acceptance plan
+
+Status as of 2026-10-19: local CLI and shared skill implemented; non-interactive acceptance and fresh interactive context handoff passed on macOS. Copyable handoff prompts and detailed WIP/writer diagnostics are implemented. Initial source publication uses Apache-2.0 and the public GitHub module path. Fresh interactive code editing with nonempty WIP, other-platform runtime checks and packaged releases remain separate. See [validation scope](VALIDATION.md).
+
+1. Build local Go storage/CLI: IDs, explicit binding, private drafts, CAS revisions, generated briefs, workspace checks, cooperative writer registration, append-only restore and interruption recovery.
+2. Verify isolated behavior: task/project separation, corrupt/missing state, conflicts and stale sessions, concurrent writers, interrupted publication, Git/unborn/non-Git workspaces, deleted WIP, and preserved history. Run format, tests, race detector, vet and build.
+3. Prepare one shared skill and project-only discovery links; verify link targets and frontmatter without installing user-level files. Document source references and rollback.
+4. Real acceptance, **non-interactive clients passed 2026-10-18; fresh interactive context handoff passed 2026-10-19** ([record](VALIDATION.md#interactive-context-handoff--2026-10-19)): Codex old chat → Claude Code new chat → Codex new chat. Compare goal, acceptance, decisions/rationales, WIP, verification and next steps. Returning to the old chat detected stale state and reloaded latest. The fresh interactive sequence did not edit source or carry nonempty WIP; earlier CLI and existing-chat checks cover those separately. Do not call a CLI simulation a client pass.
+5. Initial source publication: `songsongsongggg/agent-handoff`, public, Apache-2.0, module `github.com/songsongsongggg/agent-handoff`. The reviewed source snapshot excludes private state and old private commit metadata. Future remote writes and releases still require scoped approval and the [publication checklist](RELEASE.md).
+
+The core and isolated tests require neither Claude access nor API credentials. No hooks are planned in this phase. Stage completion and explicit handoff are sensible checkpoint moments; abrupt crashes can still precede a save. File-size heuristics cannot measure remaining model context.
